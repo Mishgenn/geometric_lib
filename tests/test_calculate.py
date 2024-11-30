@@ -1,12 +1,11 @@
 import unittest
-import math
 from calculate import calc
 
 class TestCalculate(unittest.TestCase):
 
     def test_circle_area(self):
         result = calc('circle', 'area', [1])
-        self.assertAlmostEqual(result, math.pi)
+        self.assertAlmostEqual(result, 3.141592653589793)
 
     def test_circle_perimeter(self):
         result = calc('circle', 'perimeter', [1])
