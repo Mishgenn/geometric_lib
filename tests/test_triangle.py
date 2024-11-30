@@ -11,5 +11,12 @@ class TestTriangle(unittest.TestCase):
         self.assertEqual(perimeter(3, 4, 5), 12)
         self.assertEqual(perimeter(5, 5, 5), 15)
 
+    def test_invalid_triangle(self):
+        with self.assertRaises(ValueError):
+            area(1, 2, 3)  
+
+        with self.assertRaises(ValueError):
+            perimeter(-1, 2, 3)  
+
 if __name__ == '__main__':
     unittest.main()
