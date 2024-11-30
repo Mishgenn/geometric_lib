@@ -1,11 +1,12 @@
 import unittest
+import math
 from calculate import calc
 
 class TestCalculate(unittest.TestCase):
 
     def test_circle_area(self):
         result = calc('circle', 'area', [1])
-        self.assertAlmostEqual(result, 3.141592653589793)
+        self.assertAlmostEqual(result, math.pi)
 
     def test_circle_perimeter(self):
         result = calc('circle', 'perimeter', [1])
@@ -37,7 +38,7 @@ class TestCalculate(unittest.TestCase):
 
     def test_invalid_triangle_sides(self):
         with self.assertRaises(AssertionError):
-            calc('triangle', 'area', [1, 2, 3])  # Invalid triangle
+            calc('triangle', 'area', [1, 2, 3])  
 
 if __name__ == '__main__':
     unittest.main()
