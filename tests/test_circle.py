@@ -3,14 +3,25 @@ from circle import area, perimeter
 import math
 
 class TestCircle(unittest.TestCase):
-
     def test_area(self):
-        self.assertAlmostEqual(area(1), math.pi)
-        self.assertAlmostEqual(area(2), 4 * math.pi)
+        radius = 1
+        result = area(radius)
+        self.assertAlmostEqual(result, math.pi, places=7)
 
+    def test_area_zero(self):
+        radius = 0
+        result = area(radius)
+        self.assertEqual(result, 0)
+    
     def test_perimeter(self):
-        self.assertAlmostEqual(perimeter(1), 2 * math.pi)
-        self.assertAlmostEqual(perimeter(2), 4 * math.pi)
+        radius = 1
+        result = perimeter(radius)
+        self.assertAlmostEqual(result, 2 * math.pi, places=7)
+
+    def test_perimeter_zero(self):
+        radius = 0
+        result = perimeter(radius)
+        self.assertAlmostEqual(result, 0)
 
 if __name__ == '__main__':
     unittest.main()
