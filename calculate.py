@@ -32,7 +32,7 @@ def calc(fig, func, size):
 
 
     if fig == 'triangle':
-	    a, b, c = size
+        a, b, c = size
         assert a + b > c and a + c > b and b + c > a
 
     result = eval(f'{fig}.{func}(*{size})')
@@ -44,11 +44,9 @@ if __name__ == "__main__":
     size = list()
     
     while fig not in figs:
-	    fig = input(f"Enter figure name, avaliable are {figs}:\n")
-	
+        fig = input(f"Enter figure name, avaliable are {figs}:\n")
     while func not in funcs:
-	    func = input(f"Enter function name, avaliable are {funcs}:\n")
-	
+        func = input(f"Enter function name, avaliable are {funcs}:\n")
     while len(size) != sizes.get(f"{func}-{fig}", 1):
         size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
 	
