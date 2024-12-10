@@ -1,27 +1,39 @@
 import unittest
-from circle import area, perimeter
 import math
+from circle import area, perimeter
 
-class TestCircle(unittest.TestCase):
+
+class TestAreaCircle(unittest.TestCase):
+
     def test_area(self):
-        radius = 1
-        result = area(radius)
-        self.assertAlmostEqual(result, math.pi, places=7)
+        r = 5
+        expected_area = math.pi * r * r
+        result = area(r)
+        self.assertAlmostEqual(result, expected_area)
 
-    def test_area_zero(self):
-        radius = 0
-        result = area(radius)
-        self.assertEqual(result, 0)
-    
+    def test_area_invalid_radius(self):
+        invalid_radius = [0, -1, -100]
+        for radius in invalid_radius:
+            with self.subTest(radius=radius):
+                with self.assertRaises(ValueError):
+                    area(radius)
+
+
+class TestPerimeterCircle(unittest.TestCase):
+
     def test_perimeter(self):
-        radius = 1
-        result = perimeter(radius)
-        self.assertAlmostEqual(result, 2 * math.pi, places=7)
+        r = 7
+        expected_perimeter = 2 * math.pi * r
+        result = perimeter(r)
+        self.assertAlmostEqual(result, expected_perimeter)
 
-    def test_perimeter_zero(self):
-        radius = 0
-        result = perimeter(radius)
-        self.assertAlmostEqual(result, 0)
+    def test_perimeter_invalid_radius(self):
+        invalid_radius = [0, -1, -100]
+        for radius in invalid_radius:
+            with self.subTest(radius=radius):
+                with self.assertRaises(ValueError):
+                    perimeter(radius)
+
 
 if __name__ == '__main__':
     unittest.main()

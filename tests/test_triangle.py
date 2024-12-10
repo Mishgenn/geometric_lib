@@ -1,17 +1,36 @@
 import unittest
-from triangle import area, perimeter
+import math
+from square import area, perimeter
 
-class TestTriangle(unittest.TestCase):
+class TestAreaSquare(unittest.TestCase):
 
     def test_area(self):
-        a, b, c = 3, 4, 5
-        result  = area(a, b, c)
-        self.assertEqual(result, 6)
-    
+        a = 5
+        expected_area = a * a
+        result = area(a)
+        self.assertEqual(result, expected_area)
+
+    def test_area_invalid_side(self):
+        invalid_sides = [0, -1, -100]
+        for side in invalid_sides:
+            with self.subTest(side=side):
+                with self.assertRaises(ValueError):
+                    area(side)
+
+class TestPerimeterSquare(unittest.TestCase):
+
     def test_perimeter(self):
-        a, b, c = 3, 4, 5
-        result  = perimeter(a, b, c)
-        self.assertEqual(result, 12) 
+        a = 7
+        expected_perimeter = 4 * a
+        result = perimeter(a)
+        self.assertEqual(result, expected_perimeter)
+
+    def test_perimeter_invalid_side(self):
+        invalid_sides = [0, -1, -100]
+        for side in invalid_sides:
+            with self.subTest(side=side):
+                with self.assertRaises(ValueError):
+                    perimeter(side)
 
 if __name__ == '__main__':
     unittest.main()

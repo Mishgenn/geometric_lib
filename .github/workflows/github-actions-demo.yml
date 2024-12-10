@@ -24,7 +24,7 @@ jobs:
     steps:
     - name: Print user information
       run: |
-        echo "ФИО: Корень Полина Алексеевна"
+        echo "ФИО: Зимин Михаил Михайлович"
         echo "Группа: M3110"
         echo "GitHub Nickname: ${{ github.actor }}"
 
