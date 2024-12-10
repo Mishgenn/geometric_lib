@@ -9,14 +9,6 @@ size_requirements = {'circle': {'perimeter': 1, 'area': 1}, 'square': {'perimete
 
 
 def calc(fig, func, size):
-    '''
-    Функция не возвращает значение, но выводит на экран строку, указывающую, что было вычислено для данной фигуры (площадь или периметр) и сам результат вычислений.
-
-            Параметры:
-                    fig (str)- название фигуры,
-                    func (str)- название функции,
-                    size (list)- размер
-    '''
 
     if fig not in figs:
         raise ValueError(f"Invalid figure: {fig}. Available figures are: {figs}")
